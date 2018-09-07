@@ -3,8 +3,8 @@ import json
 from pprint import pprint
 
 # Change these to your own paths/times/etc.
-bidsdir = os.path.join(os.sep, 'projects', 'sanlab', 'shared', 'REV', 'bids_data')
-include_echo_time = True
+bidsdir = os.path.join(os.sep, 'projects', 'sanlab', 'shared', 'PROP', 'bids_data')
+include_echo_time = False
 echo_time1 = '0.00437'
 echo_time2 = '0.00683'
 
@@ -63,6 +63,9 @@ def get_funcdir_niftis(func_dir_path:str, timepoint:str) -> list:
 
 
 def get_fmap_jsons(fmap_dir_path):
+    """
+    Returns a list of json files in the fmap directory.
+    """
     fmap_jsons = [f for f in os.listdir(fmap_dir_path) if f.endswith('.json')]
     return fmap_jsons
 
