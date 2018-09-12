@@ -8,8 +8,13 @@ subList = [1:9 13];
 nRuns = 2;
 studyCode = 'PROP';
 taskCode = 'PROP';
-modelCode = 'CBT_v_PST';
+modelCode = 'CBT_v_PST_pMod';
 % Saving SPM-ready names, onsets, and durations to .mat
+
+DIR.vecModel = [DIR.vec filesep modelCode];
+if ~exist(DIR.vecModel)
+    mkdir(DIR.vecModel)
+end
 
 names = {'cbt' 'pst' 'instrux' 'rating'};
 nConds = length(names);
@@ -32,7 +37,7 @@ for s = subList
     for r=1:nRuns
         
         filenames.out =  [DIR.out filesep 'sub-' subjectCode(end-2:end) '_ses-1_task-' taskCode '_run-' num2str(r) '_beh.mat'];
-        filenames.vec = [DIR.vec filesep subjectCode '_run' num2str(r) '_' modelCode];
+        filenames.vec = [DIR.vecModel filesep subjectCode '_run' num2str(r) '_' modelCode];
         onsets = cell(1,nConds);
         durations = cell(1,nConds);
         
