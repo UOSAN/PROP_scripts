@@ -30,10 +30,6 @@ for s = subList
     end
     subjectCode = [studyCode placeholder num2str(s)];
     
-    % Which indices correspond to events we care about from the original MSS text files?
-    % run x condition
-    eventIndices = cell(4,8);
-    
     for r=1:nRuns
         
         filenames.out =  [DIR.out filesep 'sub-' subjectCode(end-2:end) '_ses-1_task-' taskCode '_run-' num2str(r) '_beh.mat'];
