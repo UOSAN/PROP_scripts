@@ -35,7 +35,7 @@ for (file in fileList) {
   
   # if the merged dataset doesn't exist, create it
   if (!exists('dataset')) {
-    filePattern = paste0(subPattern, '_', wavePattern, '_',taskPattern, runPattern, 'bold_confounds.tsv')
+    filePattern = paste0(subPattern, '_', wavePattern, '_',taskPattern, runPattern, '_bold_confounds.tsv')
     dataset = read_tsv(file.path(confoundDir, file)) %>% 
       mutate(file = file) %>%
       extract(file, c('subjectID', 'wave', 'task', 'run'),
@@ -53,7 +53,7 @@ for (file in fileList) {
   
   # if the merged dataset does exist, append to it
   else {
-    filePattern = paste0(subPattern, '_', wavePattern, '_',taskPattern, runPattern, 'bold_confounds.tsv')
+    filePattern = paste0(subPattern, '_', wavePattern, '_',taskPattern, runPattern, '_bold_confounds.tsv')
     tmp = read_tsv(file.path(confoundDir, file)) %>% 
       mutate(file = file) %>%
       extract(file, c('subjectID', 'wave', 'task', 'run'),
@@ -191,8 +191,8 @@ if (writePlot) {
   
   # save the plots
   plots_written = dataset %>% 
-    mutate(label = ifelse(grepl('yes', trash), as.character(volume), ''),
-           code = ifelse(trash == 'yes', 'trash', NA)) %>%
+    mutate(label = ifelse(grepl(1, trash), as.character(volume), ''),
+           code = ifelse(trash == 1, 'trash', NA)) %>%
     gather(indicator, value, figIndicators) %>%
     group_by(subjectID, wave, task, run) %>%
     do({
@@ -207,7 +207,7 @@ if (writePlot) {
           x = "\nvolume") +
         theme_minimal(base_size = 10) +
         theme(legend.position = "none")
-      print(plot)
+      #print(plot)
       ggsave(plot, file = file.path(plotDir, paste0(.$subjectID[[1]], '_', .$wave[[1]], '_', .$task[[1]], '_', .$run[[1]], figFormat)), height = figHeight, width = figWidth, dpi = figDPI)
       data.frame()
     })
