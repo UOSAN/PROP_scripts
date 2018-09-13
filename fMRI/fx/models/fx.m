@@ -1,6 +1,7 @@
 %-----------------------------------------------------------------------
-% Job saved on 12-Sep-2018 20:27:27 by cfg_util (rev $Rev: 6460 $)
-% spm SPM - SPM12 (6906)
+% Job saved on 12-Sep-2018 21:00:30 by cfg_util (rev $Rev: 6942 $)
+% spm SPM - SPM12 (7219)
+% cfg_basicio BasicIO - Unknown
 %-----------------------------------------------------------------------
 matlabbatch{1}.cfg_basicio.file_dir.dir_ops.cfg_mkdir.parent = {'/projects/sanlab/shared/PROP/bids_data/derivatives/standard/fx/'};
 matlabbatch{1}.cfg_basicio.file_dir.dir_ops.cfg_mkdir.name = 'sub-001';
@@ -24,8 +25,8 @@ matlabbatch{7}.spm.spatial.smooth.fwhm = [6 6 6];
 matlabbatch{7}.spm.spatial.smooth.dtype = 0;
 matlabbatch{7}.spm.spatial.smooth.im = 0;
 matlabbatch{7}.spm.spatial.smooth.prefix = 's6_';
-matlabbatch{8}.cfg_basicio.file_dir.file_ops.cfg_gunzip_files.files = {'/gpfs/projects/sanlab/shared/PROP/bids_data/sub-001/ses-1/func/sub-001_ses-1_task-PROP2_bold.nii.gz'};
-matlabbatch{8}.cfg_basicio.file_dir.file_ops.cfg_gunzip_files.outdir = {'/gpfs/projects/sanlab/shared/PROP/bids_data/sub-001/ses-1/func'};
+matlabbatch{8}.cfg_basicio.file_dir.file_ops.cfg_gunzip_files.files = {'/projects/sanlab/shared/PROP/bids_data/derivatives/fmriprep/sub-001/ses-1/func/sub-001_ses-1_task-PROP1_bold_space-MNI152NLin2009cAsym_brainmask.nii.gz'};
+matlabbatch{8}.cfg_basicio.file_dir.file_ops.cfg_gunzip_files.outdir = {''};
 matlabbatch{8}.cfg_basicio.file_dir.file_ops.cfg_gunzip_files.keep = true;
 matlabbatch{9}.spm.stats.fmri_spec.dir(1) = cfg_dep('Make Directory: Make Directory ''sub-001''', substruct('.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','dir'));
 matlabbatch{9}.spm.stats.fmri_spec.timing.units = 'secs';
