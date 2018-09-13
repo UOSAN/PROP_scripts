@@ -3,6 +3,7 @@ DIR.out = [DIR.bx filesep 'output'];
 DIR.in = [DIR.bx filesep 'input'];
 DIR.vec = [DIR.bx filesep 'vecs'];
 DIR.thisFunk = '~/Desktop/PROP_scripts/behavioral/scripts/makeVecs/';
+DIR.rating = [DIR.bx filesep 'ratings'];
 
 subList = [1:9 13];
 nRuns = 2;
@@ -34,13 +35,14 @@ for s = subList
         
         filenames.out =  [DIR.out filesep 'sub-' subjectCode(end-2:end) '_ses-1_task-' taskCode '_run-' num2str(r) '_beh.mat'];
         filenames.vec = [DIR.vecModel filesep subjectCode '_run' num2str(r) '_' modelCode];
+        filenames.rating =  [DIR.rating filesep subjectCode '_run' num2str(r) '_ratings'];
         onsets = cell(1,nConds);
         durations = cell(1,nConds);
-        pmod = cell(1,nConds);
+        pmod = struct;
         for cond = 1:2
             pmod(cond).name = {'relevance' 'liking' 'helpfulness'};
-            nPmods = length(pmod.name);
-            pmod(cond).param = cell{1,nPmods};
+            nPmods = length(pmod(cond).name);
+            pmod(cond).param = cell(1,nPmods);
             pmod(cond).poly = {1 1 1};
         end
         
@@ -80,13 +82,14 @@ for s = subList
             durations{3} = run_info.durations(instruxIdx);
             durations{4} = run_info.durations(ratingIdx);
             
+            load(filenames.rating)
             for p = 1:nPmods
                 pmod(1).param{p} = cbtRatings(:,p);
                 pmod(2).param{p} = pstRatings(:,p);
             end
             
             % save vec file for this run
-            save(filenames.vec,'names','onsets','durations','pmods')
+            save(filenames.vec,'names','onsets','durations','pmod')
         end
     end
     
