@@ -29,10 +29,10 @@ rpDir = '/projects/sanlab/shared/PROP/PROP_scripts/fMRI/fx/motion/auto-motion-fm
 
 # variables
 study = 'PROP'
-subPattern = 'sub-(.*[0-9]{3})'
-wavePattern = 'ses-wave([0-9]{1})'
-taskPattern = 'task-(SVC|DSD)'
-runPattern = 'run-([0-9]{2})'
+subPattern = 'sub-(0-9]{3})'
+wavePattern = 'ses-([0-9]{1})'
+taskPattern = 'task-(PROP)'
+runPattern = '([0-9]{1})'
 writeRP = TRUE
 writePlot = TRUE
 writeEuclidean = TRUE

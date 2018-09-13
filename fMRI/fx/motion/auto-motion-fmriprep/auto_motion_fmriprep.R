@@ -35,7 +35,7 @@ for (file in fileList) {
   
   # if the merged dataset doesn't exist, create it
   if (!exists('dataset')) {
-    filePattern = paste(subPattern, wavePattern, taskPattern, runPattern, 'bold_confounds.tsv', sep = "_")
+    filePattern = paste0(subPattern, '_', wavePattern, '_',taskPattern, runPattern, 'bold_confounds.tsv')
     dataset = read_tsv(file.path(confoundDir, file)) %>% 
       mutate(file = file) %>%
       extract(file, c('subjectID', 'wave', 'task', 'run'),
@@ -53,7 +53,7 @@ for (file in fileList) {
   
   # if the merged dataset does exist, append to it
   else {
-    filePattern = paste(subPattern, wavePattern, taskPattern, runPattern, 'bold_confounds.tsv', sep = "_")
+    filePattern = paste0(subPattern, '_', wavePattern, '_',taskPattern, runPattern, 'bold_confounds.tsv')
     tmp = read_tsv(file.path(confoundDir, file)) %>% 
       mutate(file = file) %>%
       extract(file, c('subjectID', 'wave', 'task', 'run'),
