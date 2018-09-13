@@ -1,17 +1,21 @@
 DIR.bx = '~/Desktop/PROP_BxData/';
-DIR.out = [DIR.bx filesep 'output'];
+DIR.out = [DIR.bx filesep 'output_recoveredResp'];
 DIR.rating = [DIR.bx filesep 'ratings'];
 DIR.in = [DIR.bx filesep 'input'];
 DIR.vec = [DIR.bx filesep 'vecs'];
 DIR.thisFunk = '~/Desktop/PROP_scripts/behavioral/scripts/makeVecs/';
+DIR.compiled = [DIR.bx filesep 'compiled'];
 
 subList = [1:9 13];
 nRuns = 2;
 studyCode = 'PROP';
 taskCode = 'PROP';
+masterRatingMat = nan(max(subList),6);
 
 for s = subList
-    
+    currentSubCBT = [];        
+    currentSubPST = [];
+            
     if s<10
         placeholder = '00';
     elseif s<100
@@ -76,7 +80,22 @@ for s = subList
                 fprintf(fid,'%d\t%d\t%d\t%d\n', ratings(l,1),ratings(l,2),ratings(l,3),ratings(l,4));
             end
             fclose(fid);
+            
+            currentSubCBT = [currentSubCBT; cbtRatings];
+            currentSubPST = [currentSubPST; pstRatings];
         
         end
     end
+    
+    cbtMeans = nanmean(currentSubCBT);
+    pstMeans = nanmean(currentSubPST);
+    overallMeans = nanmean([currentSubCBT;currentSubPST]);
+    
+    ratingMeans(s,1:3) = cbtMeans;
+    ratingMeans(s,4:6) = pstMeans;
+    ratingMeans(s,7:9) = overallMeans;
+            
 end
+
+dlmwrite([DIR.compiled filesep 'ratingMeans.txt'],ratingMeans,'delimiter','\t')
+save([DIR.compiled filesep 'ratingMeans.mat'],'ratingMeans')
