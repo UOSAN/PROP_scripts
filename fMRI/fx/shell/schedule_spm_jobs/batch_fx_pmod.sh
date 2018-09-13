@@ -27,10 +27,10 @@ REPLACESID='001'
 SPM_PATH=/projects/sanlab/shared/spm12
 
 # Set MATLAB script path
-SCRIPT=${STUDY}/fMRI/fx/models/fx.m
+SCRIPT=${STUDY}/fMRI/fx/models/fx_pmod.m
 
 # PROP the results files
-RESULTS_INFIX=fx
+RESULTS_INFIX=fx_pmod
 
 # Set output dir
 OUTPUTDIR=${STUDY}/fMRI/fx/shell/schedule_spm_jobs/output

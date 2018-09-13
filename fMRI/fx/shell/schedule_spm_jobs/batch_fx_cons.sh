@@ -20,10 +20,10 @@ STUDY=/projects/sanlab/shared/PROP/PROP_scripts
 # Set subject list
 SUBJLIST=`cat subject_list_test.txt`
 
-#Which SID should be replaced?
+# Which SID should be replaced?
 REPLACESID='001'
 
-#SPM Path
+# SPM Path
 SPM_PATH=/projects/sanlab/shared/spm12
 
 # Set MATLAB script path
