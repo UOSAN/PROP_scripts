@@ -69,6 +69,9 @@ for s = subList
             
             cbtRatings = cell2mat([run_info.responses(cbtRelIdx)' run_info.responses(cbtHelpIdx)' run_info.responses(cbtLikeIdx)']);
             pstRatings = cell2mat([run_info.responses(pstRelIdx)' run_info.responses(pstHelpIdx)' run_info.responses(pstLikeIdx)']);
+            cbtRatings = cbtRatings-4;
+            pstRatings = pstRatings-4;
+            
             nRatings(1) = size(cbtRatings,1);
             nRatings(2) = size(pstRatings,1);
             ratings = [[ones(nRatings(1),1); 2*ones(nRatings(2),1)] [cbtRatings; pstRatings]];
