@@ -29,7 +29,7 @@ rpDir = '/projects/sanlab/shared/PROP/PROP_scripts/fMRI/fx/motion/auto-motion-fm
 
 # variables
 study = 'PROP'
-subPattern = 'sub-(0-9]{3})'
+subPattern = 'sub-([0-9]{3})'
 wavePattern = 'ses-([0-9]{1})'
 taskPattern = 'task-(PROP)'
 runPattern = '([0-9]{1})'

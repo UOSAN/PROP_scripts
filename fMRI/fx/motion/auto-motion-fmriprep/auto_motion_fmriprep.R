@@ -39,7 +39,7 @@ for (file in fileList) {
     dataset = read_tsv(file.path(confoundDir, file)) %>% 
       mutate(file = file) %>%
       extract(file, c('subjectID', 'wave', 'task', 'run'),
-              file.path('sub-.*','ses-wave.*', 'func', filePattern)) %>%
+              file.path('sub-.*','ses-.*', 'func', filePattern)) %>%
       mutate(wave = as.integer(wave),
              run = as.integer(run),
              stdDVARS = as.numeric(ifelse(stdDVARS %in% "n/a", 0, stdDVARS)),
@@ -57,7 +57,7 @@ for (file in fileList) {
     tmp = read_tsv(file.path(confoundDir, file)) %>% 
       mutate(file = file) %>%
       extract(file, c('subjectID', 'wave', 'task', 'run'),
-              file.path('sub-.*','ses-wave.*', 'func', filePattern)) %>%
+              file.path('sub-.*','ses-.*', 'func', filePattern)) %>%
       mutate(wave = as.integer(wave),
              run = as.integer(run),
              stdDVARS = as.numeric(ifelse(stdDVARS %in% "n/a", 0, stdDVARS)),
