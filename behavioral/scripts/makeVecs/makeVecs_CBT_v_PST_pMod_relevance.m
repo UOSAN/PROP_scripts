@@ -90,11 +90,11 @@ for s = subList
             % Set up p-th pmod for CBT cond
             pmod1 = cbtRatings(:,1) - subRatingMeans(1);
             pmod1(isnan(pmod1)) = 0; % Make NaNs = 0 (mean)
-            pmod(1).param{1} = {pmod1};
+            pmod(1).param{1} = pmod1;
             
             pmod2 = pstRatings(:,1) - subRatingMeans(1); % set up p-th pmod for PST cond
             pmod2(isnan(pmod2)) = 0; % Make NaNs = 0 (mean)
-            pmod(2).param{1} = {pmod2};
+            pmod(2).param{1} = pmod2;
         
             % save vec file for this run
             save(filenames.vec,'names','onsets','durations','pmod')
