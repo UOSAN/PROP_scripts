@@ -27,7 +27,7 @@ REPLACESID='001'
 SPM_PATH=/projects/sanlab/shared/spm12
 
 # Set MATLAB script path
-SCRIPT=${STUDY}/fMRI/fx/models/fx_cons_pmod.m
+SCRIPT=${STUDY}/fMRI/fx/models/fx_pmod_cons.m
 
 # PROP the results files
 RESULTS_INFIX=fx_cons_pmod
