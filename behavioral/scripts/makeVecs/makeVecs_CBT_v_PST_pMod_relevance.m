@@ -21,6 +21,7 @@ filenames.ratingMeans = 'ratingMeans.mat';
 
 names = {'cbt' 'pst' 'instrux' 'rating'};
 nConds = length(names);
+nPmodConds = 2;
 load([DIR.compiled filesep filenames.ratingMeans])
 for s = subList
     
@@ -41,9 +42,9 @@ for s = subList
         onsets = cell(1,nConds);
         durations = cell(1,nConds);
         pmod = struct;
-        for cond = 1:2
-            pmod(cond).name = 'relevance';
-            pmod(cond).poly = 1;
+        for cond = 1:nPmodConds
+            pmod(cond).name = {'relevance'};
+            pmod(cond).poly = {1};
         end
         
         if ~exist(filenames.out,'file')
@@ -89,11 +90,11 @@ for s = subList
             % Set up p-th pmod for CBT cond
             pmod1 = cbtRatings(:,1) - subRatingMeans(1);
             pmod1(isnan(pmod1)) = 0; % Make NaNs = 0 (mean)
-            pmod(1).param{1} = pmod1;
+            pmod(1).param{1} = {pmod1};
             
             pmod2 = pstRatings(:,1) - subRatingMeans(1); % set up p-th pmod for PST cond
             pmod2(isnan(pmod2)) = 0; % Make NaNs = 0 (mean)
-            pmod(2).param{1} = pmod2;
+            pmod(2).param{1} = {pmod2};
         
             % save vec file for this run
             save(filenames.vec,'names','onsets','durations','pmod')
