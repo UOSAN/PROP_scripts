@@ -1,9 +1,10 @@
 DIR.bx = '~/Desktop/PROP_BxData/';
-DIR.out = [DIR.bx filesep 'output'];
+DIR.out = [DIR.bx filesep 'output_recoveredResp'];
 DIR.in = [DIR.bx filesep 'input'];
 DIR.vec = [DIR.bx filesep 'vecs'];
 DIR.thisFunk = '~/Desktop/PROP_scripts/behavioral/scripts/makeVecs/';
 DIR.rating = [DIR.bx filesep 'ratings'];
+DIR.compiled = [DIR.bx filesep 'compiled'];
 
 subList = [1:9 13];
 nRuns = 2;
@@ -16,10 +17,11 @@ DIR.vecModel = [DIR.vec filesep modelCode];
 if ~exist(DIR.vecModel)
     mkdir(DIR.vecModel)
 end
+filenames.ratingMeans = 'ratingMeans.mat';
 
 names = {'cbt' 'pst' 'instrux' 'rating'};
 nConds = length(names);
-
+load([DIR.compiled filesep filenames.ratingMeans])
 for s = subList
     
     if s<10
@@ -83,9 +85,16 @@ for s = subList
             durations{4} = run_info.durations(ratingIdx);
             
             load(filenames.rating)
-            for p = 1:nPmods
-                pmod(1).param{p} = cbtRatings(:,p);
-                pmod(2).param{p} = pstRatings(:,p);
+            subRatingMeans = ratingMeans(s,7:9);
+            for p = 1:nPmods % for each rating type
+                % Set up p-th pmod for CBT cond
+                pmod1 = cbtRatings(:,p) - subRatingMeans(p); 
+                pmod1(isnan(pmod1)) = 0; % Make NaNs = 0 (mean)
+                pmod(1).param{p} = pmod1;
+                
+                pmod2 = pstRatings(:,p) - subRatingMeans(p); % set up p-th pmod for PST cond
+                pmod2(isnan(pmod2)) = 0; % Make NaNs = 0 (mean)
+                pmod(2).param{p} = pmod2;
             end
             
             % save vec file for this run
