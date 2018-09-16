@@ -10,7 +10,6 @@ matlabbatch{1}.spm.stats.factorial_design.des.t1.scans = {
                                                           '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-002/con_0007.nii'
                                                           '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-004/con_0007.nii'
                                                           '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-005/con_0007.nii'
-                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-006/con_0007.nii'
                                                           '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-007/con_0007.nii'
                                                           '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-008/con_0007.nii'
                                                           '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-009/con_0007.nii'
