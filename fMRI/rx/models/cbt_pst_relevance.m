@@ -3,7 +3,7 @@
 % spm SPM - SPM12 (7219)
 % cfg_basicio BasicIO - Unknown
 %-----------------------------------------------------------------------
-matlabbatch{1}.spm.stats.factorial_design.dir = {'/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/rx'};
+matlabbatch{1}.spm.stats.factorial_design.dir = {'/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/rx/cbt_pst_relevance'};
 %%
 matlabbatch{1}.spm.stats.factorial_design.des.t1.scans = {
                                                           '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-001/con_0008.nii'
