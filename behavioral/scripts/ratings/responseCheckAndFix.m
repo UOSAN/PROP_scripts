@@ -2,12 +2,19 @@ DIR.bx = '~/Desktop/PROP_BxData/';
 DIR.out = [DIR.bx filesep 'output'];
 DIR.outRecovered = [DIR.bx filesep 'output_recoveredResp'];
 
-subList = [1:9 13];
+subList = [1:9 10 12 13 15];
+nSubs = length(subList);
 nRuns = 2;
 studyCode = 'PROP';
 taskCode = 'PROP';
 masterMat = [];
-filenames.respCheck = [DIR.bx filesep 'compiled' filesep 'responseComparison'];
+
+DIR.compiled = [DIR.bx filesep 'compiled' filesep 'n' num2str(nSubs) filesep];
+if ~exist(DIR.compiled)
+    mkdir(DIR.compiled);
+end
+
+filenames.respCheck = [DIR.compiled filesep 'responseComparison'];
 nFoundResponses = [];
 
 for s = subList

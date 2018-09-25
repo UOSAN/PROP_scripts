@@ -4,13 +4,16 @@ DIR.rating = [DIR.bx filesep 'ratings'];
 DIR.in = [DIR.bx filesep 'input'];
 DIR.vec = [DIR.bx filesep 'vecs'];
 DIR.thisFunk = '~/Desktop/PROP_scripts/behavioral/scripts/makeVecs/';
-DIR.compiled = [DIR.bx filesep 'compiled'];
 
-subList = [1:9 13];
+subList = [1:9 10 12 13 15];
+nSubs = length(subList);
+DIR.compiled = [DIR.bx filesep 'compiled' filesep 'n' num2str(nSubs) filesep];
+filenames.ratingMeans = [DIR.compiled filesep 'ratingMeans'];
+
 nRuns = 2;
 studyCode = 'PROP';
 taskCode = 'PROP';
-masterRatingMat = nan(max(subList),6);
+ratingMeans = nan(max(subList),9);
 
 for s = subList
     currentSubCBT = [];        
@@ -100,5 +103,13 @@ for s = subList
             
 end
 
-dlmwrite([DIR.compiled filesep 'ratingMeans.txt'],ratingMeans,'delimiter','\t')
-save([DIR.compiled filesep 'ratingMeans.mat'],'ratingMeans')
+dlmwrite([filenames.ratingMeans '.txt'],ratingMeans,'delimiter','\t')
+save([filenames.ratingMeans '.mat'],'ratingMeans', 'cbtMeans','pstMeans','overallMeans');
+
+ratingMeans_wSub = [(1:15)' ratingMeans];
+fid = fopen([filenames.ratingMeans '_wHeader.txt'],'w');
+fprintf(fid,'%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n','participant','cbt_relevance','cbt_helpfulness','cbt_liking','pst_relevance','pst_helpfulness','pst_liking','relevance','helpfulness','liking');
+for l=1:size(ratingMeans_wSub,1)
+    fprintf(fid,'%d\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\n', ratingMeans_wSub(l,1),ratingMeans_wSub(l,2),ratingMeans_wSub(l,3),ratingMeans_wSub(l,4),ratingMeans_wSub(l,5),ratingMeans_wSub(l,6),ratingMeans_wSub(l,7),ratingMeans_wSub(l,8),ratingMeans_wSub(l,9),ratingMeans_wSub(l,10));
+end
+fclose(fid);
