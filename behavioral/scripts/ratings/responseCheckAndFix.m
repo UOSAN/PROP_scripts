@@ -20,7 +20,7 @@ nFoundResponses = [];
 for s = subList
     
     if s<10
-        placeholder = '00';
+        placeholder = '00'; 
     elseif s<100
         placeholder = '0';
     else
@@ -101,6 +101,10 @@ for s = subList
             isWrongKey = zeros(length(isKey),1); % make vector length n of 0s
             isWrongKey(wrongKeyIdx)=1; % use wrongKeyIdx to create an equivalent logical for those key times, in reference to fullLog
             
+            % Make wrongkey values +5, and put them back in key_presses
+            keyList(isWrongBox) = keyList(isWrongBox)+5;
+            key_presses.key = mat2cell(num2str(keyList),ones(length(keyList),1),1)';
+            
             isWrongKeyAfterRating = isWrongKey & isKeyAfterRating;
             nFoundResponses(end) = nFoundResponses(end)+sum(isWrongKeyAfterRating);
             
@@ -130,7 +134,7 @@ for s = subList
                     % Meanwhile, in the run_info variable, find rating idx:
                     recoveredRatingIdx_runInfo = find(run_info.onsets==recoveredRatingTimes_wrongKey(k));
                     % Put recovered value in run_info.responses:
-                    run_info.responses{recoveredRatingIdx_runInfo} = num2str(str2num(recoveredKeyVal{1})+5);
+                    run_info.responses{recoveredRatingIdx_runInfo} = num2str(str2num(recoveredKeyVal{1}));
                 end
             end
             save(filenames.outRecovered,'key_presses','run_info')
