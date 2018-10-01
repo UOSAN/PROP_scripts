@@ -2,7 +2,7 @@ DIR.bx = '~/Desktop/PROP_BxData/';
 DIR.out = [DIR.bx filesep 'output'];
 DIR.outRecovered = [DIR.bx filesep 'output_recoveredResp'];
 
-subList = [1:9 10 12 13 15];
+subList = [1:9 10 12 13 15:16];
 nSubs = length(subList);
 nRuns = 2;
 studyCode = 'PROP';
@@ -78,7 +78,7 @@ for s = subList
             isFixNext = [isFix(2:end);0];
             isMissingRating = isRating & isFixNext;
             % This is just a sanity check that this matches the missing 
-            % rating count. (It does)
+            % rating count. (It does, usually...)
             
             % Find keypresses that happen immediatey after rating period has ended:
             isFixBefore = [0;isFix(1:end-1)];
@@ -89,6 +89,24 @@ for s = subList
             recoveredKeyTimes = fullLog(isKeyAfterFix,2);
             isRatingWithKeyAfterFix = logical([isKeyAfterFix(3:end);0;0]);
             recoveredRatingTimes = fullLog(isRatingWithKeyAfterFix,2);
+            
+            % Find keypresses that happened during rating period, but were wrong button box (L hand):
+            isRatingBefore = [0;isRating(1:end-1)];
+            isKeyAfterRating = isKey & isRatingBefore;
+            
+            keyList = str2num(cell2mat(key_presses.key(:))); % get keyList from key_presses
+            isWrongBox = keyList<5; % get logical for key_presses
+            keyIdx = find(isKey); % make idx vec for keys in the fullLog
+            wrongKeyIdx = keyIdx(isWrongBox); % use logical for key_presses to find which key times were with the wrong box
+            isWrongKey = zeros(length(isKey),1); % make vector length n of 0s
+            isWrongKey(wrongKeyIdx)=1; % use wrongKeyIdx to create an equivalent logical for those key times, in reference to fullLog
+            
+            isWrongKeyAfterRating = isWrongKey & isKeyAfterRating;
+            nFoundResponses(end) = nFoundResponses(end)+sum(isWrongKeyAfterRating);
+            
+            recoveredKeyTimes_wrongKey = fullLog(isWrongKeyAfterRating,2); 
+            isRatingWithWrongKeyAfter = logical([isWrongKeyAfterRating(2:end);0;]);
+            recoveredRatingTimes_wrongKey = fullLog(isRatingWithWrongKeyAfter,2);
             
             for k=1:length(recoveredKeyTimes)
                 % Find key idx within key_press variable:
@@ -101,8 +119,21 @@ for s = subList
                 % Put recovered value in run_info.responses:
                 run_info.responses(recoveredRatingIdx_runInfo) = recoveredKeyVal;
             end
-            save(filenames.outRecovered,'key_presses','run_info')
             
+            if ~isempty(recoveredKeyTimes_wrongKey)
+                for k=1:length(recoveredKeyTimes_wrongKey)
+                    % Find key idx within key_press variable:
+                    recoveredKeyIdx = find(key_presses.time==recoveredKeyTimes_wrongKey(k));
+                    % Get recovered value:
+                    recoveredKeyVal = key_presses.key(recoveredKeyIdx);
+                    
+                    % Meanwhile, in the run_info variable, find rating idx:
+                    recoveredRatingIdx_runInfo = find(run_info.onsets==recoveredRatingTimes_wrongKey(k));
+                    % Put recovered value in run_info.responses:
+                    run_info.responses{recoveredRatingIdx_runInfo} = num2str(str2num(recoveredKeyVal{1})+5);
+                end
+            end
+            save(filenames.outRecovered,'key_presses','run_info')
         end
     end
 end

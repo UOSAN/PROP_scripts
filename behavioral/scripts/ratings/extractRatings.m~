@@ -30,7 +30,7 @@ for s = subList
     end
     subjectCode = [studyCode placeholder num2str(s)];
     
-    for r=1%:nRuns
+    for r=1:nRuns
         
         filenames.out =  [DIR.out filesep 'sub-' subjectCode(end-2:end) '_ses-1_task-' taskCode '_run-' num2str(r) '_beh.mat'];
         filenames.rating =  [DIR.rating filesep subjectCode '_run' num2str(r) '_ratings'];
@@ -129,7 +129,7 @@ save([filenames.ratingBounds '.mat'],'ratingBounds', 'cbtBounds','pstBounds','ov
 
 ratingBounds_wSub = [(1:max(subList))' ratingBounds];
 fid = fopen([filenames.ratingBounds '_wHeader.txt'],'w');
-fprintf(fid,'%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n','participant','cbt_rel_min','cbt_help_min','cbt_like_min','cbt_rel_max','cbt_help_max','cbt_like_max','pst_rel_min','pst_help_min','pst_like_min','pst_help_max','pst_rel_max','pst_like_max','rel_min','help_min','like_min','rel_max','help_max','like_max');
+fprintf(fid,'%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n','participant','cbt_rel_min','cbt_help_min','cbt_like_min','cbt_rel_max','cbt_help_max','cbt_like_max','pst_rel_min','pst_help_min','pst_like_min','pst_like_max','rel_min','rel_max','help_min','help_max','like_min','like_max');
 for l=1:size(ratingBounds_wSub,1)
     fprintf(fid,'%d\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\n', ratingBounds_wSub(l,1),ratingBounds_wSub(l,2),ratingBounds_wSub(l,3),ratingBounds_wSub(l,4),ratingBounds_wSub(l,5),ratingBounds_wSub(l,6),ratingBounds_wSub(l,7),ratingBounds_wSub(l,8),ratingBounds_wSub(l,9),ratingBounds_wSub(l,10),ratingBounds_wSub(l,11),ratingBounds_wSub(l,12),ratingBounds_wSub(l,13),ratingBounds_wSub(l,14),ratingBounds_wSub(l,15),ratingBounds_wSub(l,16),ratingBounds_wSub(l,17),ratingBounds_wSub(l,18),ratingBounds_wSub(l,19));
 end
