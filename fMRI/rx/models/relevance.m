@@ -3,17 +3,17 @@
 % spm SPM - SPM12 (7219)
 % cfg_basicio BasicIO - Unknown
 %-----------------------------------------------------------------------
-matlabbatch{1}.spm.stats.factorial_design.dir = {'/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/rx/pst_relevance'};
+matlabbatch{1}.spm.stats.factorial_design.dir = {'/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/rx/relevance'};
 %%
 matlabbatch{1}.spm.stats.factorial_design.des.t1.scans = {
-                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-001/con_0008.nii'
-                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-002/con_0008.nii'
-                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-004/con_0008.nii'
-                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-005/con_0008.nii'
-                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-007/con_0008.nii'
-                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-008/con_0008.nii'
-                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-009/con_0008.nii'
-                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-013/con_0008.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-001/con_0006.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-002/con_0006.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-004/con_0006.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-005/con_0006.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-007/con_0006.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-008/con_0006.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-009/con_0006.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-013/con_0006.nii'
                                                           };
 %%
 matlabbatch{1}.spm.stats.factorial_design.cov = struct('c', {}, 'cname', {}, 'iCFI', {}, 'iCC', {});
@@ -28,10 +28,10 @@ matlabbatch{2}.spm.stats.fmri_est.spmmat(1) = cfg_dep('Factorial design specific
 matlabbatch{2}.spm.stats.fmri_est.write_residuals = 0;
 matlabbatch{2}.spm.stats.fmri_est.method.Classical = 1;
 matlabbatch{3}.spm.stats.con.spmmat(1) = cfg_dep('Model estimation: SPM.mat File', substruct('.','val', '{}',{2}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','spmmat'));
-matlabbatch{3}.spm.stats.con.consess{1}.tcon.name = 'pst relevance positive';
+matlabbatch{3}.spm.stats.con.consess{1}.tcon.name = 'relevance positive';
 matlabbatch{3}.spm.stats.con.consess{1}.tcon.weights = 1;
 matlabbatch{3}.spm.stats.con.consess{1}.tcon.sessrep = 'none';
-matlabbatch{3}.spm.stats.con.consess{2}.tcon.name = 'pst relevance negative';
+matlabbatch{3}.spm.stats.con.consess{2}.tcon.name = 'relevance negative';
 matlabbatch{3}.spm.stats.con.consess{2}.tcon.weights = -1;
 matlabbatch{3}.spm.stats.con.consess{2}.tcon.sessrep = 'none';
 matlabbatch{3}.spm.stats.con.delete = 1;
