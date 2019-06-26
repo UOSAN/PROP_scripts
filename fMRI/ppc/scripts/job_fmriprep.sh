@@ -28,7 +28,7 @@ for task in ${tasks[@]}; do
 echo -e "\nStarting on: $task"
 echo -e "\n"
 
-PYTHONPATH="" singularity run --bind "${group_dir}":"${group_dir}" $image $bids_dir $derivatives participant --participant_label $subid -t $task -w /tmp --output-space {template,T1w,fsnative} --nthreads 1 --mem-mb 100000 --fs-license-file /projects/sanlab/shared/"${study}"/"${study}"_scripts/fMRI/ppc/license.txt --account=sanlab
+PYTHONPATH="" singularity run --bind "${group_dir}":"${group_dir}" $image $bids_dir $derivatives participant --participant_label $subid -t $task -w /tmp --output-space {template,T1w,fsnative} --nthreads 1 --mem-mb 100000 --fs-license-file /projects/sanlab/shared/"${study}"/"${study}"_scripts/fMRI/ppc/license.txt
 
 
 echo -e "\n"
