@@ -5,8 +5,8 @@
 #SBATCH --cpus-per-task=28
 #SBATCH --ntasks=1
 #SBATCH --mem-per-cpu=1000
-#SBATCH --partition=defq,short,fat,long,longfat
+#SBATCH --partition=short
 
 module load R gcc
 
-srun Rscript --verbose auto_motion_fmriprep.R
+srun Rscript --verbose auto_motion_fmriprep.R --account=sanlab
