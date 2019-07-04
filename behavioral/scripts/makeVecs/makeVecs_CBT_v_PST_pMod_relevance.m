@@ -1,12 +1,13 @@
-DIR.bx = '~/Desktop/PROP_BxData/';
+DIR.bx = '~/Documents/code/sanlab/PROP_BxData/';
 DIR.out = [DIR.bx filesep 'output_recoveredResp'];
 DIR.in = [DIR.bx filesep 'input'];
 DIR.vec = [DIR.bx filesep 'vecs'];
-DIR.thisFunk = '~/Desktop/PROP_scripts/behavioral/scripts/makeVecs/';
+DIR.thisFunk = '~/Documents/code/sanlab/PROP_scripts/behavioral/scripts/makeVecs/';
 DIR.rating = [DIR.bx filesep 'ratings'];
 DIR.compiled = [DIR.bx filesep 'compiled'];
 
-subList = [1:9 13];
+subList = [1:9 13 15:30 32];
+nSubs = length(subList);
 nRuns = 2;
 studyCode = 'PROP';
 taskCode = 'PROP';
@@ -22,7 +23,8 @@ filenames.ratingMeans = 'ratingMeans.mat';
 names = {'cbt' 'pst' 'instrux' 'rating'};
 nConds = length(names);
 nPmodConds = 2;
-load([DIR.compiled filesep filenames.ratingMeans])
+load([DIR.compiled filesep 'n' num2str(nSubs) filesep filenames.ratingMeans])
+
 for s = subList
     
     if s<10
