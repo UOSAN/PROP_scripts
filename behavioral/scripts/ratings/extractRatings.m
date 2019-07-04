@@ -5,7 +5,7 @@ DIR.in = [DIR.bx filesep 'input'];
 DIR.vec = [DIR.bx filesep 'vecs'];
 DIR.thisFunk = '~/Documents/code/sanlab/PROP_scripts/behavioral/scripts/makeVecs/';
 
-subList = [1:9 13 15:30 32];
+subList = [1:10 12:13 15:30 32];
 nSubs = length(subList);
 DIR.compiled = [DIR.bx filesep 'compiled' filesep 'n' num2str(nSubs) filesep];
 filenames.ratingMeans = [DIR.compiled filesep 'ratingMeans'];
