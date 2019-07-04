@@ -6,7 +6,7 @@ DIR.thisFunk = '~/Documents/code/sanlab/PROP_scripts/behavioral/scripts/makeVecs
 DIR.rating = [DIR.bx filesep 'ratings'];
 DIR.compiled = [DIR.bx filesep 'compiled'];
 
-subList = [1:9 13 15:30 32];
+subList = [1:10 12:13 15:30 32];
 nSubs = length(subList);
 nRuns = 2;
 studyCode = 'PROP';
