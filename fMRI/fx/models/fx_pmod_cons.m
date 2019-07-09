@@ -4,7 +4,7 @@
 % cfg_basicio BasicIO - Unknown
 %-----------------------------------------------------------------------
 matlabbatch{1}.spm.stats.fmri_est.spmmat = {'/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-001/SPM.mat'};
-matlabbatch{1}.spm.stats.fmri_est.write_residuals = 0;
+matlabbatch{1}.spm.stats.fmri_est.write_residuals = 1;
 matlabbatch{1}.spm.stats.fmri_est.method.Classical = 1;
 matlabbatch{2}.spm.stats.con.spmmat(1) = cfg_dep('Model estimation: SPM.mat File', substruct('.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','spmmat'));
 matlabbatch{2}.spm.stats.con.consess{1}.tcon.name = 'cbt > rest';
