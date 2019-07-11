@@ -12,7 +12,7 @@ SPM_PATH=/projects/sanlab/shared/spm12
 SCRIPT=${STUDY}/fMRI/rx/models/cbt_pst.m
 
 # PROP the results files
-RESULTS_INFIX=rx_relevance
+RESULTS_INFIX=rx_cbt_pst
 
 # Set output dir and make it if it doesn't exist
 OUTPUTDIR=${STUDY}/fMRI/rx/output
