@@ -9,7 +9,7 @@ STUDY=/projects/sanlab/shared/PROP/PROP_scripts
 SPM_PATH=/projects/sanlab/shared/spm12
 
 # Set MATLAB script path
-SCRIPT=${STUDY}/fMRI/rx/cbt_pst_relevance.m
+SCRIPT=${STUDY}/fMRI/rx/models/cbt_pst_relevance.m
 
 # PROP the results files
 RESULTS_INFIX=rx_relevance
