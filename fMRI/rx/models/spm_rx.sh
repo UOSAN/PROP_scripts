@@ -26,4 +26,4 @@ module load matlab
 srun --job-name="${RESULTS_INFIX}" \
 	 -o "${OUTPUTDIR}"/"${RESULTS_INFIX}".log \
 	 --account=sanlab \
-	 matlab -nosplash -nodisplay -nodesktop -r "clear; addpath('$SPM_PATH'); spm_jobman('initcfg'); spm_jobman('run',$SCRIPT); exit"
+	 matlab -nosplash -nodisplay -nodesktop -r "clear; addpath('$SPM_PATH'); spm_jobman('initcfg'); spm_jobman('run','$SCRIPT'); exit"
