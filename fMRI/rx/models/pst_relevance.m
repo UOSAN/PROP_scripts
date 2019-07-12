@@ -13,14 +13,32 @@ matlabbatch{1}.spm.stats.factorial_design.des.t1.scans = {
                                                           '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-007/con_0008.nii'
                                                           '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-008/con_0008.nii'
                                                           '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-009/con_0008.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-010/con_0008.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-012/con_0008.nii'
                                                           '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-013/con_0008.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-015/con_0008.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-016/con_0008.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-017/con_0008.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-018/con_0008.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-019/con_0008.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-020/con_0008.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-021/con_0008.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-022/con_0008.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-023/con_0008.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-025/con_0008.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-026/con_0008.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-027/con_0008.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-028/con_0008.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-029/con_0008.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-030/con_0008.nii'
+                                                          '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/sub-032/con_0008.nii'
                                                           };
 %%
 matlabbatch{1}.spm.stats.factorial_design.cov = struct('c', {}, 'cname', {}, 'iCFI', {}, 'iCC', {});
 matlabbatch{1}.spm.stats.factorial_design.multi_cov = struct('files', {}, 'iCFI', {}, 'iCC', {});
 matlabbatch{1}.spm.stats.factorial_design.masking.tm.tm_none = 1;
 matlabbatch{1}.spm.stats.factorial_design.masking.im = 0;
-matlabbatch{1}.spm.stats.factorial_design.masking.em = {''};
+matlabbatch{1}.spm.stats.factorial_design.masking.em = {'/projects/sanlab/shared/spm12/canonical/MNI152_T1_1mm_brain.nii'};
 matlabbatch{1}.spm.stats.factorial_design.globalc.g_omit = 1;
 matlabbatch{1}.spm.stats.factorial_design.globalm.gmsca.gmsca_no = 1;
 matlabbatch{1}.spm.stats.factorial_design.globalm.glonorm = 1;
