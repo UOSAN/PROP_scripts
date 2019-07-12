@@ -2,7 +2,7 @@
 # D.Cos 12/2018
 
 # user input
-model_dir = "/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/pmod/"
+model_dir = "/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/fx/"
 output_dir = "/projects/sanlab/shared/PROP/PROP_scripts/fMRI/rx/thresholding/"
 
 # load packages
