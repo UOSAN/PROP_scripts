@@ -1,0 +1,13 @@
+running cbt_pst
+++ 3dClustSim: AFNI version=AFNI_18.2.04 (Jul  6 2018) [64-bit]
+++ Authored by: RW Cox and BD Ward
+++ 223147 voxels in mask (20.62% of total)
+++ Kernel function radius = 26.86 mm
+++ ACF(0.74,4.40,10.48) => FWHM=10.88 => 97x115x97 pads to 128x160x128
+ + Kernel image dimensions 63 x 79 x 63
+++ Startup clock time = 0.4 s
+++ Using 1 OpenMP threads
+Simulating:011223344556677889.9.0011223344556677889.9.0011223344556677889.9.0011223344556677889.9.0011223344556677889.9.!
+++ Clock time now = 1925.7 s
+!
+++ Clock time now = 1925.4 s

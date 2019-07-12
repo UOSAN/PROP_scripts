@@ -1,0 +1,6 @@
+running pmod
+++ 3dClustSim: AFNI version=AFNI_18.2.04 (Jul  6 2018) [64-bit]
+++ Authored by: RW Cox and BD Ward
+** ERROR (nifti_image_read): failed to find header file for '/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/rx/pmod/mask.nii'
+[7m** FATAL ERROR:[0m can't open -mask dataset!
+** Program compile date = Jul  6 2018
