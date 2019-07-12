@@ -38,6 +38,7 @@ for MODEL in ${MODELS[@]}; do
 	 	-o ${OUTPUTDIR}/${MODEL}_${RESULTS_INFIX}.log \
 	 	--cpus-per-task=${cpuspertask} \
 	 	--mem-per-cpu=${mempercpu} \
+	 	--account=sanlab \
 	 	${SHELL_SCRIPT}
  	sleep .25
 done
