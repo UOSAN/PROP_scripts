@@ -6,7 +6,7 @@
 #--------------------------------------------------------------
 
 ## Set your study
-STUDY=DEV
+STUDY=PROP
 
 # Set subject list
 SUBJLIST=`cat subject_list_test.txt`
