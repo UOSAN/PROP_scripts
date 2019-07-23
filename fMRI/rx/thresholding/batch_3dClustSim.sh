@@ -24,7 +24,7 @@ if [ ! -d ${OUTPUTDIR} ]; then
 fi
 
 # Set model dir and specify RX models
-MODELDIR=/projects/sanlab/shared/PROP/bids_data/derivatives/pmod/rx
+MODELDIR=/projects/sanlab/shared/PROP/bids_data/derivatives/standard/rx
 MODELS=(cbt_pst)
 
 # Set job parameters
