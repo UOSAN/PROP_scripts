@@ -1,0 +1,4 @@
+.DS_Store
+*error.txt
+*output.txt
+*.log
