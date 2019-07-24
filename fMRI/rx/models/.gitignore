@@ -1,4 +1,4 @@
 .DS_Store
-*error.txt
-*output.txt
-*.log
+**/*error.txt
+**/*output.txt
+**/*.log
