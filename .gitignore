@@ -1,5 +1,9 @@
 # Files
-**/.DS_Store
+.DS_Store
+*error.txt
+*output.txt
+*.log
+*.out
 
 # Folders
 .Rproj.user
